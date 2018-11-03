@@ -122,3 +122,16 @@ li.badge {
 .mapboxgl-popup-close-button {
     color:white;
 }
+
+/* MOBILE */
+@media all and (max-width: 900px) {
+    body {
+        margin: 2%;
+    }
+    .noisecover {
+        margin: 1% 2% 1% 2%;
+    }
+    h1 {
+        font-size: 10vw;
+    }
+}
