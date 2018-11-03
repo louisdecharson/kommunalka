@@ -1,0 +1,124 @@
+html {
+    /* background: url('./../noise.jpg'); *\/ */
+    /* background-size: cover; *\/ */
+}
+body {
+    margin: 5% 10% 5% 10%;
+    padding: 1% 2% 1% 2%;
+    font-family: Helvetica, Arial;
+    color: black;
+    border: 3px solid black; */
+    overflow-x: scroll;
+    border-radius: 3em;
+}
+.noisecover {
+    margin: 5% 10% 5% 10%;
+    padding: 1% 2% 2% 1%;
+    font-family: Helvetica, Arial;
+    color: black;
+    border: 3px solid black; */
+    overflow-x: scroll;
+    border-radius: 3em;
+}
+.titre {
+    padding-top: 1%;
+    width: 100%;
+    text-align: center;
+}
+.leitmotiv {
+    margin: 1% 0% 1% 0%;
+    font-style: italic;
+}
+h1 {
+    font-weight: bold;
+    font-size: 4vw;
+    letter-spacing: 3px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+.address{
+    margin-bottom: 1%;
+}
+.nom {
+    font-size: 14px;
+    font-weight: bold;
+}
+.badge {
+    padding: 4px;
+    margin: 5px;
+}
+.where {
+    font-style: italic;
+}
+.btn {
+    border-radius: 1rem;
+    width: 100px;
+}
+.comment {
+    display: block;
+}
+
+.dark {
+    color: #1d2124;
+    background-color: #fff;
+    border: 1px solid #1d2124;
+}
+.dark:hover {
+    color: #fff;
+    background-color: #1d2124;
+}
+
+/* Colors of Badge */
+.restaurant {
+    color: #fff;
+    background-color:#169f84;
+}
+.bar {
+    color: #fff;
+    background-color: #9a59b5;
+}
+.café {
+    color: #212529;
+    background-color: #ffc107;
+}
+.apps {
+    color: #fff;
+    background-color: #212529;
+}
+.delete {
+    padding-left: 0.5em;
+    cursor: pointer;
+}
+#addfilter {
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #007bff;
+    cursor: pointer;
+}
+li.badge {
+    display: block;
+}
+.addlistfilter {
+    cursor: pointer;
+}
+
+/* MAP */
+.popup {
+    margin:0;
+    width: 300px;
+    max-width: 300px;
+}
+.mapboxgl-popup-content {
+    background-color: rgba(44,62,80,0.9) !important;
+    color:white;
+    border-radius: 25px;
+    width: 320px;
+}
+.fas {
+    padding-right: 1em;
+}
+.mapboxgl-popup-close-button {
+    color:white;
+}
