@@ -126,10 +126,10 @@ li.badge {
 /* MOBILE */
 @media all and (max-width: 900px) {
     body {
-        margin: 2%;
+        margin: 0.1%;
     }
     .noisecover {
-        margin: 1% 2% 1% 2%;
+        margin: 1% 1% 1% 2%;
     }
     h1 {
         font-size: 10vw;
