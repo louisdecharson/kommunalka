@@ -11,15 +11,29 @@ body {
     overflow-x: scroll;
     border-radius: 3em;
 }
-.noisecover {
-    margin: 5% 10% 5% 10%;
-    padding: 1% 2% 2% 1%;
-    font-family: Helvetica, Arial;
-    color: black;
-    border: 3px solid black; */
-    overflow-x: scroll;
-    border-radius: 3em;
+/* WALL */
+.wall {
+    margin: 10% 5% 20% 5%;
 }
+.form-group {
+    margin-top: 10%;
+}
+label {
+    font-weight: bold;
+}
+.wrongpassword {
+    color: #bf392b;
+    font-weight: bold;
+}
+/* .noisecover { */
+/*     margin: 5% 10% 5% 10%; */
+/*     padding: 1% 2% 2% 1%; */
+/*     font-family: Helvetica, Arial; */
+/*     color: black; */
+/*     border: 3px solid black; *\/ */
+/*     overflow-x: scroll; */
+/*     border-radius: 3em; */
+/* } */
 .titre {
     padding-top: 1%;
     width: 100%;
