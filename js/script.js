@@ -115,7 +115,6 @@ var map = new mapboxgl.Map({
     center: [2.3724244,48.8672365,], // starting position [lng, lat]
     zoom: 13 // starting zoom
 });
-map.addControl(new mapboxgl.NavigationControl());
 map.on('load',function() {
     map.addLayer({
         "id":"places",
