@@ -60,6 +60,7 @@ function checkPassword(){
     if (pass == '2917b441db21509270e1cb2ae28cbf9f') {
         $('.wall').hide();
         $('.content').show();
+        resizeMap();
     } else {
         $('.wrongpassword').show();
     }
@@ -161,7 +162,11 @@ $('.comment').on('click',function() {
     showOnMap(this);
     showMap();
 });
-$('#map').hide();
+function resizeMap () {
+    $('#map').show();
+    map.resize();
+    $('#map').hide();
+}
 // data.Addresses.forEach(function(it,ind) {
 //     var content = '<tr class="address"><td class="nom">'+ it.Name + '</td>';
 //     content += '<td class="Adress">' + it.Address + '</td>'; 
