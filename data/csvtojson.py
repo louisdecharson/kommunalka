@@ -38,8 +38,13 @@ def to_json(path,dest):
     called data
     """
     df = pd.read_csv(path,sep=';',encoding='utf-8')
+    # Get Coordinates
+    df['Coord'] = df.apply(lambda row: get_coordinates(row['Address']), axis=1)
+    df['deschtml'] =  df.apply(lambda row: createDesc(row), axis=1)
+    # Transform into JSON
     tmp = df.to_json(orient='records')
     json = 'var data = {"Addresses":' + tmp + '};\n'
+    # Add geojson
     geojson = 'var geoJSON = ' + getGeoJSON(df) + ';'
     json += geojson
     with open(dest,'w') as f:
@@ -76,7 +81,6 @@ def getGeoJSON(df):
     """ 
     This function creates a geoJSON to be used in Mapbox
     """
-    df['Coord'] = df.apply(lambda row: get_coordinates(row['Address']), axis=1)
     features = []
     # Append Home to features
     home = {
@@ -86,11 +90,11 @@ def getGeoJSON(df):
         "Comment_en":"Home Sweet Home. There is no place like home."
     }
     features.append(Feature(
-        geometry = Point((float(2.3724244),float(48.8672365))),
+        geometry = Point((float(2.374622),float(48.867236))),
         properties = {
             "title": 'Home',
             "description": createDesc(home),
-            "icon":'marker'
+            "icon":'home'
         }))
     # Append all the others
     for index,row in df.iterrows():

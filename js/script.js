@@ -3,7 +3,9 @@ function fill(it,ind) {
     content += '<div class="nom">' + it.Name ;
     content += '<span class="badge badge-pill ' + it.Category.toLowerCase().split(" ")[0] + '">' + it.Category + '</span></div>';
     content += '<div class="where">' + it.Address + '</div>';
-    content += '<div class="comment">' + it.Comment_en + '</div></li>';
+    content += '<div class="comment">' + it.Comment_en + '</div>';
+    content += '<div class="coord">' + it.Coord.join() + '</div>';
+    content += '<div class="deschtml">' + it.deschtml + '</div>';
     return content;
 }
 function getFilters () {
@@ -78,13 +80,19 @@ $('.addlistfilter').each(function(i,v) {
 });
 
 // MAP OR LIST
-$('#showListe').click(function() {
+function showListe() {
     $('#map').hide();
     $('#liste').show();
-});
-$('#showMap').click(function() {
+};
+function showMap() {
     $('#liste').hide();
     $('#map').show();
+};
+$('#showListe').click(function() {
+    showListe();
+});
+$('#showMap').click(function() {
+    showMap();
 });
 
 // MAP
@@ -124,10 +132,27 @@ map.on('click', 'places', function (e) {
         .setHTML(e.features[0].properties.description)
         .addTo(map);
     var zoom = map.getZoom();
-    // var coord =  [e.features[0].geometry.coordinates[0],e.features[0].geometry.coordinates[1]-30/zoom];
-    // map.flyTo({center:coord});
+    var coord =  [e.features[0].geometry.coordinates[0],e.features[0].geometry.coordinates[1]];
+    map.flyTo({center:coord});
 });
-
+function showOnMap(elem) {
+    var coord = $(elem).siblings('.coord').text().split(','),
+        deschtml = $(elem).siblings('.deschtml').html();
+    map.flyTo({center:coord,zoom:15});
+    new mapboxgl.Popup()
+        .setLngLat(coord)
+        .setHTML(deschtml)
+        .addTo(map);
+}
+// When an element is clicked in the list, display it in the list
+$('.where').on('click',function() {
+    showOnMap(this);
+    showMap();
+});
+$('.comment').on('click',function() {
+    showOnMap(this);
+    showMap();
+});
 $('#map').hide();
 // data.Addresses.forEach(function(it,ind) {
 //     var content = '<tr class="address"><td class="nom">'+ it.Name + '</td>';

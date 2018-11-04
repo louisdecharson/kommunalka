@@ -51,15 +51,24 @@ ul {
 }
 .where {
     font-style: italic;
+    cursor: pointer;
+    /* border-bottom: solid 1px #1d2124; */
+    text-decoration: underline;
+}
+.coord {
+    display:none;
+}
+.deschtml {
+    display:none;
+}
+.comment {
+    display: block;
+    cursor: pointer;
 }
 .btn {
     border-radius: 1rem;
     width: 100px;
 }
-.comment {
-    display: block;
-}
-
 .dark {
     color: #1d2124;
     background-color: #fff;
@@ -87,6 +96,13 @@ ul {
     color: #fff;
     background-color: #212529;
 }
+.home {
+    font-size: 0.5em;
+    color: #2c3e50;
+    background-color: #fff;
+    border: 1px solid #2c3e50;
+}
+/* Manage Filters */
 .delete {
     padding-left: 0.5em;
     cursor: pointer;
@@ -122,14 +138,17 @@ li.badge {
 .mapboxgl-popup-close-button {
     color:white;
 }
-
+.mapboxgl-popup-content hr {
+    color: white;
+    background-color: white;
+}
 /* MOBILE */
 @media all and (max-width: 900px) {
     body {
-        margin: 0.1%;
+        margin: 2%;
     }
     .noisecover {
-        margin: 1% 1% 1% 2%;
+        margin: 1% 2% 1% 2%;
     }
     h1 {
         font-size: 10vw;
