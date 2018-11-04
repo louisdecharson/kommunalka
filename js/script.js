@@ -34,7 +34,7 @@ function updateFiltersOn () {
 // });
 function updateListAddress() {
     $('.address').each(function(index,value) {
-        if (!(filters_on.has($(this).find('.badge').text()))) {
+        if (!(filters_on.has($(this).find('.nom .badge').text()))) {
             $(this).hide();
         } else {
             $(this).show();
@@ -64,7 +64,6 @@ var filters = getFilters(),
     filters_on = new Set(filters);
 updateFiltersOn();
 
-// Delete filter
 // Add a filter
 $('#addfilter').on('click',function() {
     var view_list_filters = '<ul>';
@@ -75,9 +74,6 @@ $('#addfilter').on('click',function() {
     $('#addfilter').attr('data-content',view_list_filters);
 });
 $('[data-toggle="popover"]').popover();
-$('.addlistfilter').each(function(i,v) {
-    console.log($(this).text());
-});
 
 // MAP OR LIST
 function showListe() {
