@@ -61,6 +61,8 @@ def getIcon(category):
         icon = 'cafe'
     elif cat == 'bar':
         icon = 'beer'
+    elif cat == 'boulangerie':
+        icon = 'bakery'
     else:
         icon = 'cafe'
     return icon

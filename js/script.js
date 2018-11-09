@@ -1,13 +1,35 @@
 function fill(it,ind) {
-    var content = '<li class="address">';
-    content += '<div class="nom">' + it.Name ;
-    content += '<span class="badge badge-pill ' + it.Category.toLowerCase().split(" ")[0] + '">' + it.Category + '</span></div>';
+    var content = '<li class="address">',
+        categ = it.Category.toLowerCase().split(" ")[0];
+    content += '<div class="nom">';
+    // switch (categ) {
+    // case  'restaurant':
+    //     content += '<i class=" fas fa-utensils"></i>'
+    //     break;
+    // case 'bar':
+    //     content += '<i class="fas fa-cocktail"></i>'
+    //     break;
+    // default:
+    //     content += ''
+    // }
+    content +=  it.Name ;
+    content += '<span class="badge badge-pill ' + categ  + '">' + it.Category + '</span>';
+    if (!! it.SubCategory) {
+        content += '<span class="subcategory">' + it.SubCategory + '</span>';
+    }
+    if (categ === 'restaurant') {
+        for (var i=0;i < it.Price_Range;i++) {
+            content += '<i class="fas fa-euro-sign"></i>'
+        }
+    }
+    content += '</div>';
     if (it.Address.substring(0,4) == 'http') {
         content += '<a class="where" href="' + it.Address + '">' + it.Address + '</a>';
     } else {
         content += '<div class="where">' + it.Address + '</div>';
     }
     content += '<div class="comment">' + it.Comment_en + '</div>';
+    // Hidden fields for the map
     content += '<div class="coord">' + it.Coord.join() + '</div>';
     content += '<div class="deschtml">' + it.deschtml + '</div>';
     return content;
@@ -27,7 +49,9 @@ function updateFiltersOn () {
     });
     // Add filters
     filters_on.forEach(function(it,ind) {
-        filtersHTML += '<div class="filter badge badge-pill ' + it.toLowerCase().split(" ")[0] + '"><span>' + it + '</span><span class="delete" onclick="deleteFilter(this)">x</span></div>';
+        // filtersHTML += '<div class="filter badge badge-pill ' + it.toLowerCase().split(" ")[0] + '"><span>' + it + '</span><span class="delete" onclick="deleteFilter(this)">x</span></div>';
+        filtersHTML += '<div class="filter badge badge-pill ' + it.toLowerCase().split(" ")[0] + '" onclick="deleteFilter(this)"><span>' + it + '</span></div>';
+
     });
     $('#filters').append(filtersHTML);
 }
@@ -46,8 +70,10 @@ function updateListAddress() {
     });
 }
 function deleteFilter(element) {
-    element.parentElement.remove();
-    filters_on.delete(element.previousSibling.textContent);
+    // element.parentElement.remove();
+    element.remove();
+    // filters_on.delete(element.previousSibling.textContent);
+    filters_on.delete(element.textContent);
     updateListAddress();
 }
 function addListFilter(element) {
@@ -65,10 +91,26 @@ function checkPassword(){
         $('.wrongpassword').show();
     }
 }
+function sortAddress(a,b) {
+    if (a.Category === b.Category) {
+        if ( a.Name.toUpperCase() < b.Name.toUpperCase()) {
+            return -1;
+        } else {
+            return 1
+        }
+    } else {
+        if (a.Category.toUpperCase() < b.Category.toUpperCase()) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+}
 // ====================================
 // Add data
 // ========
-data.Addresses.forEach(function(it,ind) {
+
+data.Addresses.sort(sortAddress).forEach(function(it,ind) {
     $('#liste').append(fill(it,ind));
 });
 
