@@ -11,7 +11,9 @@
         <title>Mathilde & Louis' Kommunalka</title>
     </head>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <body>
+    <script src="./js/password.js"></script>
+    <body onload="checkCookie()">
+        <!-- WALL -->
         <div class="wall">
             <div class="titre">
                 <h1>KOMMUNALKA</h1>
@@ -23,18 +25,22 @@
             </div>
             <button class="btn btn-primary" onclick="checkPassword()">Submit</button>
         </div>
+        
         <div class="content" style="display:none">
         <!-- <div class="noisecover"> -->
             <div class="titre">
                 <h1>KOMMUNALKA</h1>
-                <div class="leitmotiv">We would like to share with you the places we love to go.</div>
-                <button class="btn btn-sm dark" id="showListe"><i class="fas fa-list-ul"></i>List</button>
+                <div class="leitmotiv">
+                    <p>We would like to share with you the places we love to go.</p>
+                    <p class="signature">Louis & Mathilde</p>
+                </div>
+                <button class="btn btn-sm dark clicked" id="showListe"><i class="fas fa-list-ul"></i>List</button>
                 <button class="btn btn-sm dark" id="showMap"><i class="fas fa-map-marked-alt"></i>Map</button>
             </div>
             <hr/>
             <div id="content">
-                <h5>Filters <i class="fas fa-filter"></i></h5>
-                <div id="filters"><span id="addfilter" data-html="true" data-toggle="popover" title="Add a filter" class="badge badge-pill">+ Add a filter</span></div>
+                <h5 id="filterHeader">Filters <i class="fas fa-filter"></i></h5>
+                <div id="filters" class="on"><span id="addfilter" data-html="true" data-toggle="popover" title="Add a filter" class="badge badge-pill">+ Add a filter</span></div>
                 <hr/>
                 <ul id="liste"> 
                 </ul>

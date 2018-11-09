@@ -45,7 +45,7 @@ label {
     text-align: center;
 }
 .leitmotiv {
-    margin: 1% 0% 1% 0%;
+    margin: 1% 25% 1% 25%;
     font-style: italic;
 }
 h1 {
@@ -124,8 +124,8 @@ ul {
     background-color: #f0c30f;    
 }
 .apps {
-    color: #fff;
-    background-color: #212529;
+    color: #212529;
+    background-color: #7f8b8c;
 }
 .home {
     font-size: 0.5em;
@@ -189,15 +189,42 @@ li.badge {
     color: white;
     background-color: white;
 }
+button.dark.clicked {
+    background-color: #1d2124;
+    color: #fff
+}
+.signature {
+    text-align: right
+}
+.address_sep {
+    visibility: hidden;
+}
+#filterHeader {
+    cursor: pointer
+}
+
 /* MOBILE */
 @media all and (max-width: 900px) {
     body {
         margin: 2%;
+        border: 2px solid black;
     }
     .noisecover {
-        margin: 1% 2% 1% 2%;
+        margin: 1% 3% 1% 3%;
     }
     h1 {
         font-size: 10vw;
+    }
+    .leitmotiv {
+        margin: 1% 2% 1% 2%;
+    }
+    /* .address:after { */
+    /*     /\* content: "-------------"; *\/ */
+    /*     /\* text-align: center; *\/ */
+    /*     margin-top: 3%; */
+    /* } */
+    .address_sep {
+        visibility: visible;
+        margin: 2% 20% 2% 20%
     }
 }
