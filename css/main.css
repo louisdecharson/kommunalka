@@ -202,7 +202,22 @@ button.dark.clicked {
 #filterHeader {
     cursor: pointer
 }
+noscript {
+    background-color: #bf392b;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    font-weigt: bold;
+    padding: 2% 0% 2% 0%;
 
+}
+noscript p {
+    margin-top: 10%;
+}
 /* MOBILE */
 @media all and (max-width: 900px) {
     body {
